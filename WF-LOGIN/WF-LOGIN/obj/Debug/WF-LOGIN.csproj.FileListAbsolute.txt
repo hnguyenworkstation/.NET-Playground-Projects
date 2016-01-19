@@ -1,0 +1,9 @@
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\bin\Debug\WF-LOGIN.exe.config
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\bin\Debug\WF-LOGIN.exe
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\bin\Debug\WF-LOGIN.pdb
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF-LOGIN.csprojResolveAssemblyReference.cache
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF_LOGIN.Form1.resources
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF_LOGIN.Properties.Resources.resources
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF-LOGIN.csproj.GenerateResource.Cache
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF-LOGIN.exe
+C:\Users\Hung\Documents\Visual Studio 2015\.NET-Playground-Projects\WF-LOGIN\WF-LOGIN\obj\Debug\WF-LOGIN.pdb
