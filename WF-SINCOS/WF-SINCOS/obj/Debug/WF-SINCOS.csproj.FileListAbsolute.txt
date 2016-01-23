@@ -1,1 +1,9 @@
 D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\bin\Debug\WF-SINCOS.exe.config
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\bin\Debug\WF-SINCOS.exe
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\bin\Debug\WF-SINCOS.pdb
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF-SINCOS.csprojResolveAssemblyReference.cache
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF_SINCOS.FrmSinCos.resources
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF_SINCOS.Properties.Resources.resources
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF-SINCOS.csproj.GenerateResource.Cache
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF-SINCOS.exe
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\obj\Debug\WF-SINCOS.pdb
