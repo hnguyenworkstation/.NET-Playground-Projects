@@ -1,0 +1,1 @@
+D:\.NET-Playground-Projects\WF-SINCOS\WF-SINCOS\bin\Debug\WF-SINCOS.exe.config
