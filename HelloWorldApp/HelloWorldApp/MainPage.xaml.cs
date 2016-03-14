@@ -26,5 +26,15 @@ namespace HelloWorldApp
         {
             this.InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            textBlock.Text = "Hello World!"; 
+        }
+
+        private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

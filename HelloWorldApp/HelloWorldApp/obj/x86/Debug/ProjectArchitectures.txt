@@ -1,0 +1,1 @@
+D:\.NET-Playground-Projects\HelloWorldApp\HelloWorldApp\HelloWorldApp.csproj;x86

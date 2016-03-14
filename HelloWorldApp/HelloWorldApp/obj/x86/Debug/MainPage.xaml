@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="HelloWorldApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorldApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-344,10">
+        <Button x:ConnectionId='1' x:Name="button" Content="Click This Button!" HorizontalAlignment="Left" Margin="218,458,0,0" VerticalAlignment="Top" Height="57" Width="260" FontSize="20"                      RenderTransformOrigin="0.496,-0.041"/>
+        <TextBlock x:ConnectionId='2' x:Name="textBlock" HorizontalAlignment="Left" Margin="154,109,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="125" Width="439" FontSize="64"                                              />
+
+    </Grid>
+</Page>
+
