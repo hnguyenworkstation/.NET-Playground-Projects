@@ -1,0 +1,1 @@
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\bin\Debug\StudentManagement.exe.config
