@@ -318,6 +318,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmStudentManage";
             this.Text = "Student Management";
+            this.Load += new System.EventHandler(this.frmStudentManage_Load);
             this.gbStudentInfo.ResumeLayout(false);
             this.gbStudentInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentInfomation)).EndInit();

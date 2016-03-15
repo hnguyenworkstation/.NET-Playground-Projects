@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace StudentManagement
 {
@@ -50,6 +51,27 @@ namespace StudentManagement
         private void lblAddress_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Global Content
+        DataSet ds;
+        SqlDataAdapter daStudent;
+
+        private void frmStudentManage_Load(object sender, EventArgs e)
+        {
+            // string connection
+            string sConnect = @"Data Source=DESKTOP-IS8NAAN;Initial Catalog=STUDENTMANAGEMENT;
+                                     Integrated Security=True";
+            // selector connection
+            string sSelectStudent = @"Select * From Student";
+
+            // implementing data
+            daStudent = new SqlDataAdapter(sSelectStudent, sConnect);
+            ds = new DataSet("DsStudentManagement");
+
+            // Fill out the table with loaded data
+            daStudent.Fill(ds, "tblStudent");
+            dgvStudentInfomation.DataSource = ds.Tables["tblStudent"];
         }
     }
 }
