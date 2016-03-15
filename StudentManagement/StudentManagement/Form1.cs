@@ -55,13 +55,22 @@ namespace StudentManagement
 
         //Global Content
         DataSet ds;
-        SqlDataAdapter daStudent;
+        SqlDataAdapter daStudent;  // Data to fill the data grid view
+        SqlDataAdapter daClass;  // Data to fill in the combo box
+        SqlDataAdapter daBoth;  // Data Adapter to select data in both student and class Table
 
         private void frmStudentManage_Load(object sender, EventArgs e)
         {
+            #region Properties
+            // Active Radio Box with Page Loaded
+            rdbMale.Checked = true;
+
             // string connection
             string sConnect = @"Data Source=DESKTOP-IS8NAAN;Initial Catalog=STUDENTMANAGEMENT;
                                      Integrated Security=True";
+            #endregion
+
+            #region GridView Student
             // selector connection
             string sSelectStudent = @"Select * From Student";
 
@@ -72,6 +81,127 @@ namespace StudentManagement
             // Fill out the table with loaded data
             daStudent.Fill(ds, "tblStudent");
             dgvStudentInfomation.DataSource = ds.Tables["tblStudent"];
+
+            // Edit Data grid view -- Name Display
+            dgvStudentInfomation.Columns["StudentID"].HeaderText = "Student ID";
+            dgvStudentInfomation.Columns["StudentName"].HeaderText = "Full Name";
+            dgvStudentInfomation.Columns["StudentGender"].HeaderText = "Gender";
+            dgvStudentInfomation.Columns["StudentDOB"].HeaderText = "Day of Birth";
+            dgvStudentInfomation.Columns["StudentAddress"].HeaderText = "Address";
+            dgvStudentInfomation.Columns["ClassID"].HeaderText = "Class ID";
+
+            // Edit Data Grid View -- Size
+            dgvStudentInfomation.Columns["StudentID"].Width = 40;
+            dgvStudentInfomation.Columns["StudentName"].Width = 120;
+            dgvStudentInfomation.Columns["StudentGender"].Width = 50;
+            dgvStudentInfomation.Columns["StudentDOB"].Width = 100;
+            dgvStudentInfomation.Columns["StudentAddress"].Width = 150;
+            dgvStudentInfomation.Columns["ClassID"].Width = 50;
+
+            #endregion
+
+            #region ComboBox Class
+
+            string sSelectClass = @"Select * From Class";
+            daClass = new SqlDataAdapter(sSelectClass, sConnect);
+            daClass.Fill(ds, "tblClass");
+
+            cbClass.DataSource = ds.Tables["tblClass"];
+            cbClass.DisplayMember = "ClassName";
+            cbClass.ValueMember = "ClassID";
+            #endregion
+
+            #region Data from both tables
+            /* Replace the Class ID Columns by Class Name Column
+                // Look for name of the class that student is in
+                string sSelectBoth = @"Select Student.*, Class.ClassName From Student, Class where Student.ClassID = Class.ClassID";
+                // Get the data source
+                daBoth = new SqlDataAdapter(sSelectBoth, sConnect);
+                daBoth.Fill(ds, "tblBoth");
+                dgvStudentInfomation.DataSource = ds.Tables["tblBoth"];
+            */
+
+            // A Second way
+            DataGridViewColumn clClassName = new DataGridViewColumn();
+            DataGridViewCell cellClassName = new DataGridViewTextBoxCell();
+            clClassName.CellTemplate = cellClassName;
+            clClassName.Name = "ClassName";
+            clClassName.HeaderText = "Class";
+            dgvStudentInfomation.Columns.Add(clClassName);
+
+            for(int i =0; i<dgvStudentInfomation.RowCount; i++)
+            {
+                dgvStudentInfomation.Rows[i].Cells["ClassName"].Value = 
+                    getClassName(dgvStudentInfomation.Rows[i].Cells["ClassID"].Value.ToString());
+            }
+            
+            // Hidding the class ID column in data grid view
+            dgvStudentInfomation.Columns["ClassID"].Visible = false;
+            dgvStudentInfomation.Columns["ClassName"].HeaderText = "Class";
+            dgvStudentInfomation.Columns["ClassName"].Width = 50;
+            #endregion
+
+            #region Connection for Adding
+            // create connection using for Adding feature
+            SqlConnection con = new SqlConnection(sConnect);
+            // create a command to the connect string
+            string sAddStudent = @"Insert into Student(StudentName, StudentGender, StudentDOB, StudentAddress, ClassID)
+                                    values(@StudentName, @StudentGender, @StudentDOB, @StudentAddress, @ClassID)";
+            // Initializing a SQL command for Adding feature
+            SqlCommand cmAddStudent = new SqlCommand(sAddStudent, con);
+            // Assign value for command
+            cmAddStudent.Parameters.Add("@StudentName", SqlDbType.NVarChar, 50, "StudentName");
+            cmAddStudent.Parameters.Add("@StudentGender", SqlDbType.NVarChar, 10, "StudentGender");
+            cmAddStudent.Parameters.Add("@StudentDOB", SqlDbType.DateTime, 10, "StudentDOB");
+            cmAddStudent.Parameters.Add("@StudentAddress", SqlDbType.NVarChar, 100, "StudentAddress");
+            cmAddStudent.Parameters.Add("@ClassID", SqlDbType.Int, 10, "ClassID");
+            
+            // Setting the Adding command for database of student
+            daStudent.InsertCommand = cmAddStudent;
+
+            #endregion
+        }
+
+        public string getClassName(string sClassID)
+        {
+            // create a temp connection
+            string sTempConnection = @"Data Source = DESKTOP-IS8NAAN; Initial Catalog=STUDENTMANAGEMENT; Integrated Security=True";
+            string sTempCommand = @"Select ClassName From Class where Class.ClassID="+sClassID;
+            SqlDataAdapter daClassName = new SqlDataAdapter(sTempCommand, sTempConnection);
+            DataTable dt = new DataTable();
+            daClassName.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            return "";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            // Check if found any error
+            if (txtStudentName.Text == null || txtAddress == null)
+            {
+                MessageBox.Show("Some of the field(s) is/are empty!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Add one line to the table of Student (SQL database)
+            DataRow row = ds.Tables["tblStudent"].NewRow();
+            // Collect information
+            row["StudentName"] = txtStudentName.Text;
+            if(rdbMale.Checked == true)
+            {
+                row["StudentGender"] = "Male";
+            } else
+            {
+                row["StudetnGender"] = "Female";
+            }
+            row["StudentDOB"] = dtpDayOfBirth.Text;
+            row["StudentAddress"] = txtAddress.Text;
+            row["ClassID"] = cbClass.SelectedValue;
+
+            // Add row to the table Student
+            ds.Tables["tblStudent"].Rows.Add(row);
         }
     }
 }

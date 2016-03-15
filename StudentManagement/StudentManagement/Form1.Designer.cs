@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.gbStudentInfo = new System.Windows.Forms.GroupBox();
             this.lblStudentID = new System.Windows.Forms.Label();
@@ -211,9 +212,13 @@
             // 
             // dgvStudentInfomation
             // 
+            this.dgvStudentInfomation.AllowUserToAddRows = false;
             this.dgvStudentInfomation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudentInfomation.Location = new System.Drawing.Point(43, 450);
             this.dgvStudentInfomation.Name = "dgvStudentInfomation";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgvStudentInfomation.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentInfomation.Size = new System.Drawing.Size(545, 274);
             this.dgvStudentInfomation.TabIndex = 2;
             // 
@@ -300,6 +305,7 @@
             this.btnAdd.Size = new System.Drawing.Size(108, 84);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmStudentManage
             // 
