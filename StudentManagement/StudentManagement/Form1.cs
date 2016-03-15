@@ -53,21 +53,23 @@ namespace StudentManagement
 
         }
 
-        //Global Content
+        //Global Contents
         DataSet ds;
         SqlDataAdapter daStudent;  // Data to fill the data grid view
         SqlDataAdapter daClass;  // Data to fill in the combo box
         SqlDataAdapter daBoth;  // Data Adapter to select data in both student and class Table
+
+        // string connection
+        string sConnect = @"Data Source=DESKTOP-IS8NAAN;Initial Catalog=STUDENTMANAGEMENT;
+                                     Integrated Security=True";
+
+        int tempStudentID;  // Get the last StudentID in the database
 
         private void frmStudentManage_Load(object sender, EventArgs e)
         {
             #region Properties
             // Active Radio Box with Page Loaded
             rdbMale.Checked = true;
-
-            // string connection
-            string sConnect = @"Data Source=DESKTOP-IS8NAAN;Initial Catalog=STUDENTMANAGEMENT;
-                                     Integrated Security=True";
             #endregion
 
             #region GridView Student
@@ -162,6 +164,22 @@ namespace StudentManagement
             #endregion
         }
 
+        public void getLastStudentID()
+        {
+            // create connection
+            string sGetLastID = @"Select StudentID from Student";
+            SqlDataAdapter daGetLastID = new SqlDataAdapter(sGetLastID, sConnect);
+            DataTable temp = new DataTable();
+            daGetLastID.Fill(temp);
+
+            if(temp.Rows.Count > 0)
+            {
+                int tempID = temp.Rows.Count - 1;
+                tempStudentID = int.Parse(temp.Rows[tempID][0].ToString());
+            }
+
+        }
+
         public string getClassName(string sClassID)
         {
             // create a temp connection
@@ -180,9 +198,10 @@ namespace StudentManagement
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Check if found any error
-            if (txtStudentName.Text == null || txtAddress == null)
+            if (txtStudentName.Text == "" || txtAddress.Text == "")
             {
                 MessageBox.Show("Some of the field(s) is/are empty!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             // Add one line to the table of Student (SQL database)
@@ -200,8 +219,17 @@ namespace StudentManagement
             row["StudentAddress"] = txtAddress.Text;
             row["ClassID"] = cbClass.SelectedValue;
 
+            // Get the ID of last student in the database
+            getLastStudentID();
+            tempStudentID++;
+            row["StudentID"] = tempStudentID;
+
             // Add row to the table Student
             ds.Tables["tblStudent"].Rows.Add(row);
+
+            // Add class name to DataGridView
+            dgvStudentInfomation.Rows[dgvStudentInfomation.RowCount - 1].Cells["ClassName"].Value
+                                                 = getClassName(cbClass.SelectedValue.ToString());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
