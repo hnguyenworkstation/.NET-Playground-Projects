@@ -1,1 +1,9 @@
 C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\bin\Debug\StudentManagement.exe.config
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\bin\Debug\StudentManagement.exe
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\bin\Debug\StudentManagement.pdb
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csprojResolveAssemblyReference.cache
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.frmStudentManage.resources
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.Properties.Resources.resources
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.csproj.GenerateResource.Cache
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.exe
+C:\Users\quang\Desktop\.NET-Playground-Projects\StudentManagement\StudentManagement\obj\Debug\StudentManagement.pdb
