@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.gbStudentInfo = new System.Windows.Forms.GroupBox();
             this.lblStudentID = new System.Windows.Forms.Label();
@@ -154,6 +154,7 @@
             // 
             this.txtStudentID.Location = new System.Drawing.Point(186, 56);
             this.txtStudentID.Name = "txtStudentID";
+            this.txtStudentID.ReadOnly = true;
             this.txtStudentID.Size = new System.Drawing.Size(200, 26);
             this.txtStudentID.TabIndex = 6;
             // 
@@ -216,9 +217,9 @@
             this.dgvStudentInfomation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudentInfomation.Location = new System.Drawing.Point(43, 450);
             this.dgvStudentInfomation.Name = "dgvStudentInfomation";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
-            this.dgvStudentInfomation.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
+            this.dgvStudentInfomation.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudentInfomation.Size = new System.Drawing.Size(545, 274);
             this.dgvStudentInfomation.TabIndex = 2;
             // 
@@ -263,6 +264,7 @@
             this.btnSave.Size = new System.Drawing.Size(108, 84);
             this.btnSave.TabIndex = 6;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 

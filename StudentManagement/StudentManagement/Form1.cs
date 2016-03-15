@@ -203,5 +203,18 @@ namespace StudentManagement
             // Add row to the table Student
             ds.Tables["tblStudent"].Rows.Add(row);
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                daStudent.Update(ds, "tblStudent");
+                MessageBox.Show("Successfully added new Student to DataBase!"
+                            , "Congratulations!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }
